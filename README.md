@@ -27,7 +27,6 @@ What is the distribution of ride categories (Business vs. Personal)? (Bar chart)
 
 What is the distribution of ride distances (miles)? (Histogram)
 
-What are the top 10 most common start and stop locations? (Bar chart)
 
 2️⃣ Time-Based Analysis
 
@@ -39,14 +38,27 @@ What are the top 10 most common start and stop locations? (Bar chart)
 
 1 Which ride purpose accounts for the highest total trip distance, and how does trip distance vary across different ride purposes?
 
-4 .Purpose-Based Analysis What are the most common trip purposes for Uber rides? (Pie chart or bar chart)
+4 .Purpose-Based Analysis What are the most common trip purposes for Uber rides? (Pie chart )
 
 1.How do different trip purposes vary in distance traveled? (Box plot)
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #What is the distribution of ride categories (Business vs. Personal)? (Bar chart)
-plt.savefig("uber_trip_purposes.png", dpi=300, bbox_inches="tight")
+![image](https://github.com/user-attachments/assets/6a359b43-c25d-4337-91d5-a358c49e94a6)
 
 What is the distribution of ride distances (miles)? (Histogram)
-plt.savefig("1.png", dpi=300, bbox_inches="tight")
+![image](https://github.com/user-attachments/assets/2019fa62-e451-4b19-bd5b-eab7238b16f9)
+
+#What are the peak hours for Uber rides? (Histogram of ride start times)
+![image](https://github.com/user-attachments/assets/4200adb9-7209-4da5-aa88-8942c9c5d6ab)
+
+ How does the number of rides vary over time trends ? (Line plot)
+![image](https://github.com/user-attachments/assets/54029a13-9399-4133-b676-27b270f79674)
+
+ Which ride purpose accounts for the highest total trip distance, and how does trip distance vary across different ride purposes?
+ ![image](https://github.com/user-attachments/assets/92fda6d8-13fd-41f0-b414-dc7be6b8d77e)
+
+What are the most common trip purposes for Uber rides? (Pie chart )
+![image](https://github.com/user-attachments/assets/96758b47-8d90-4eca-8181-8045882df178)
+
 
