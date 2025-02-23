@@ -1,0 +1,37 @@
+import pandas as pd
+
+import matplotlib.pyplot as plt
+
+import seaborn as sns
+
+import numpy as np 
+
+df=pd.read_csv(r"C:\Users\hkoli\Downloads\uberdrive.csv")
+
+pd.set_option("display.max.row",1156)
+df
+
+df.isnull().sum()
+
+df[df["END_DATE*"].isna()==1]
+
+df = df.dropna(subset=["END_DATE*"])
+
+df.info()
+
+df["START_DATE*"]=pd.to_datetime(df["START_DATE*"], errors='coerce')
+
+df["END_DATE*"]=pd.to_datetime(df["END_DATE*"],errors='coerce')
+
+list=["CATEGORY*","START*","STOP*","PURPOSE*"]
+for i in list:
+    print(i)
+    df[i]=df[i].astype("category")
+
+df["hour"]=df["START_DATE*"].dt.hour
+
+#What is the distribution of ride categories (Business vs. Personal)? (Bar chart)
+
+sns.countplot(x=df["CATEGORY*"], hue=df["CATEGORY*"],palette=["skyblue", "pink"])
+plt.title("distribution of ride categories (Business vs. Personal)")
+plt.show()
