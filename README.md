@@ -61,4 +61,6 @@ What is the distribution of ride distances (miles)? (Histogram)
 What are the most common trip purposes for Uber rides? (Pie chart )
 ![image](https://github.com/user-attachments/assets/96758b47-8d90-4eca-8181-8045882df178)
 
+#How do different trip purposes vary in distance traveled? (Box plot)'''
+![image](https://github.com/user-attachments/assets/b3c3fc43-b3ce-478a-893e-c9a6143a75f7)
 
