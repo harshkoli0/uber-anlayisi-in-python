@@ -4,12 +4,19 @@ Dataset Overview
 The uberdrive.csv dataset contains 1,156 entries with 7 columns:
 
 START_DATE* (object) - Start time of the ride
+
 END_DATE* (object) - End time of the ride
+
 CATEGORY* (object) - Type of ride (Business or Personal)
+
 START* (object) - Start location
+
 STOP* (object) - End location
+
 MILES* (float) - Distance traveled in miles
+
 PURPOSE* (object) - Purpose of the ride (e.g., Meeting, Customer Visit)
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Data Visualization Questions
 Here are some data analysis & visualization questions 
