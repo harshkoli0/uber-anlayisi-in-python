@@ -42,3 +42,11 @@ What are the top 10 most common start and stop locations? (Bar chart)
 4 .Purpose-Based Analysis What are the most common trip purposes for Uber rides? (Pie chart or bar chart)
 
 1.How do different trip purposes vary in distance traveled? (Box plot)
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#What is the distribution of ride categories (Business vs. Personal)? (Bar chart)
+plt.savefig("uber_trip_purposes.png", dpi=300, bbox_inches="tight")
+
+What is the distribution of ride distances (miles)? (Histogram)
+plt.savefig("1.png", dpi=300, bbox_inches="tight")
+
