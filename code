@@ -10,7 +10,8 @@ df=pd.read_csv(r"C:\Users\hkoli\Downloads\uberdrive.csv")
 
 pd.set_option("display.max.row",1156)
 df
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DATA CLEANING
 df.isnull().sum()
 
 df[df["END_DATE*"].isna()==1]
@@ -29,9 +30,76 @@ for i in list:
     df[i]=df[i].astype("category")
 
 df["hour"]=df["START_DATE*"].dt.hour
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+plots
 #What is the distribution of ride categories (Business vs. Personal)? (Bar chart)
 
 sns.countplot(x=df["CATEGORY*"], hue=df["CATEGORY*"],palette=["skyblue", "pink"])
 plt.title("distribution of ride categories (Business vs. Personal)")
 plt.show()
+
+# What is the distribution of ride distances (miles)? (Histogram)
+sns.histplot(df["MILES*"],bins=50,kde=True)
+plt.title("Distribution of ride distances (miles)")
+plt.savefig("2.png", dpi=300, bbox_inches="tight")
+plt.show()
+
+
+#What are the peak hours for Uber rides? (Histogram of ride start times)
+sns.histplot(df["hour"],bins=20,kde=True)
+plt.xticks(range(1, 24))
+plt.title("The peak hours for Uber rides")
+plt.xlabel("Hour of the Day", fontsize=12)
+plt.ylabel("Frequency", fontsize=12)
+plt.savefig("3.png", dpi=300, bbox_inches="tight")
+plt.show()
+
+
+How does the number of rides vary over time trends ? (Line plot)
+
+weekly_rides = df.groupby(df["START_DATE*"].dt.to_period("W")).size()
+
+plt.figure(figsize=(12, 6))
+plt.plot(weekly_rides.index.astype(str), weekly_rides.values, marker='o', linestyle='-', color='g')
+plt.title(" date Ride Trends", fontsize=14)
+plt.xlabel("date", fontsize=12)
+plt.ylabel("Number of Rides", fontsize=12)
+plt.xticks(rotation=90)
+plt.savefig("4.png", dpi=300, bbox_inches="tight")
+plt.grid(True, linestyle="--", alpha=0.6)
+plt.show()
+
+
+tota_miles_by_purpose=df.groupby(df["PURPOSE*"])["MILES*"].sum().reset_index()
+
+sns.barplot(x="PURPOSE*", y="MILES*", data=tota_miles_by_purpose)
+plt.xticks(rotation=90) 
+plt.savefig("5.png", dpi=300, bbox_inches="tight")
+plt.show()
+
+#What are the most common trip purposes for Uber rides? (Pie chart )
+
+df["PURPOSE*"].nunique()
+df["PURPOSE*"].dropna()
+
+count=df["PURPOSE*"].value_counts()
+plt.figure(figsize=(15,10))
+plt.pie(count,labels=count.index,autopct="%1.1f%%", colors=["lightblue", "orange", "green", "red", "purple"],startangle=180)
+plt.title("Most Common Trip Purposes for Uber Rides")
+plt.savefig("7.png", dpi=300, bbox_inches="tight")
+plt.figure(figsize=(10,10))
+plt.tight_layout()
+
+plt.show()
+
+
+#How do different trip purposes vary in distance traveled? (Box plot)'''
+plt.figure(figsize=(12, 6))
+sns.boxplot(x=df["PURPOSE*"], y=df["MILES*"], palette="Set2")
+
+plt.title("Trip Distance Distribution by Purpose")
+plt.xlabel("Trip Purpose")
+plt.ylabel("Distance (Miles)")
+plt.xticks(rotation=90)
+plt.show()
+
